@@ -1,6 +1,6 @@
 {
   "name": "retaui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "UI library with React and Tailwindcss.",
   "scripts": {
     "storybook": "start-storybook -p 6006",
@@ -14,7 +14,11 @@
     "check-format": "npm run prettier -- --list-different",
     "validate": "npm-run-all --parallel check-types check-format lint test"
   },
-  "author": "Edwin Gonzales <edwinpgm@gmail.com>",
+  "author": {
+    "name": "Edwin Gonzales",
+    "email": "edwinpgm@gmail.com",
+    "url": "https://twitter.com/edwinpgm"
+  },
   "license": "ISC",
   "peerDependencies": {
     "react": "^17.0.2",
@@ -66,5 +70,8 @@
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edwinpgm/retaui.git"
+  }
 }
