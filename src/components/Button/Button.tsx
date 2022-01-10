@@ -18,11 +18,11 @@ export const Button = React.forwardRef(
         {...restProps}
       >
         {LeftIcon && (
-          <div>{<LeftIcon className="h-3.5 w-3.5 text-neutral-600" />}</div>
+          <div>{<LeftIcon className="h-3.5 w-3.5 text-gray-600" />}</div>
         )}
         <span className="text-sm">{label}</span>
         {RightIcon && (
-          <div>{<RightIcon className="h-3.5 w-3.5 text-neutral-600" />}</div>
+          <div>{<RightIcon className="h-3.5 w-3.5 text-gray-600" />}</div>
         )}
       </button>
     );
