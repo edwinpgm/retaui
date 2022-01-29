@@ -1,5 +1,5 @@
 {
-  "name": "@edwinpgm/retaui",
+  "name": "retaui",
   "version": "0.1.0",
   "description": "UI library with React and TailwindCSS.",
   "scripts": {
@@ -81,9 +81,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/edwinpgm/retaui.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@edwinpgm"
   },
   "dependencies": {
     "@babel/runtime": "^7.16.7",
