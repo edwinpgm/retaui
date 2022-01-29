@@ -1,7 +1,7 @@
 {
-  "name": "retaui",
+  "name": "@edwinpgm/retaui",
   "version": "0.0.2",
-  "description": "UI library with React and Tailwindcss.",
+  "description": "UI library with React and TailwindCSS.",
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
@@ -81,6 +81,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/edwinpgm/retaui.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@edwinpgm"
   },
   "dependencies": {
     "@babel/runtime": "^7.16.7",
