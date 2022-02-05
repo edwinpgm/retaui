@@ -5,7 +5,7 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "rollup": "rollup -c",
+    "build": "rollup -c",
     "test": "jest",
     "lint": "eslint --ext .js,.ts .",
     "check-types": "tsc",
@@ -73,11 +73,11 @@
     "tsconfig-paths-webpack-plugin": "^3.5.2",
     "typescript": "^4.5.5"
   },
-  "main": "dist/cjs/index.js",
-  "types": "dist/index.d.ts",
-  "module": "dist/esm/index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "module": "lib/index.js",
   "files": [
-    "dist"
+    "lib"
   ],
   "repository": {
     "type": "git",
