@@ -2,7 +2,7 @@
 const { join } = require('path');
 
 module.exports = {
-  content: [join(__dirname, './src/**/*.(ts|tsx)')],
+  content: [join(__dirname, './components/**/*.(ts|tsx)')],
   theme: {},
   variants: {
     extend: {},
