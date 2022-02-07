@@ -1,6 +1,6 @@
 {
   "name": "retaui",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "UI library with React and TailwindCSS.",
   "scripts": {
     "storybook": "start-storybook -p 6006",
