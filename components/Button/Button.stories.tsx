@@ -1,7 +1,11 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ArrowDownIcon } from '@heroicons/react/solid';
-import { Button, ButtonProps } from '.';
+import {
+  ArrowDownIcon,
+  ArrowRightIcon,
+  PlusIcon,
+} from '@heroicons/react/solid';
+import { Button, ButtonProps, ButtonSize, ButtonType } from '.';
 
 export default {
   title: 'Button',
@@ -12,7 +16,25 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args: ButtonProps) => (
-  <Button {...args} />
+  <div className="space-y-3">
+    <Button
+      {...args}
+      size={ButtonSize.Middle}
+      type={ButtonType.Primary}
+      RightIcon={ArrowRightIcon}
+    />
+    <Button {...args} size={ButtonSize.Middle} type={ButtonType.Default} />
+    <Button {...args} size={ButtonSize.Small} />
+    <Button
+      {...args}
+      size={ButtonSize.Small}
+      className="inline"
+      type={ButtonType.Primary}
+      LeftIcon={PlusIcon}
+    />
+    <Button {...args} size={ButtonSize.Middle} />
+    <Button {...args} size={ButtonSize.Large} />
+  </div>
 );
 
 export const Basic = Template.bind({});
