@@ -1,17 +1,21 @@
 import React from 'react';
+import clsx from 'clsx';
 import toArray from 'rc-util/lib/Children/toArray';
 import devWarning from 'rc-util/lib/warning';
 import { SideNavItem } from './SideNavItem';
 import { SideNavSubMenu } from './SideNavSubMenu';
 
-export interface SideNavInterface extends React.FC {
+interface SideNavProps {
+  className?: string;
+}
+export interface SideNavInterface extends React.FC<SideNavProps> {
   Item: typeof SideNavItem;
   SubMenu: typeof SideNavSubMenu;
 }
 
-export const SideNav: SideNavInterface = ({ children }) => {
+export const SideNav: SideNavInterface = ({ children, className }) => {
   return (
-    <ul className="shadow-inner-l shadow-gray-200">
+    <ul className={clsx('shadow-inner-l shadow-gray-200', className)}>
       {toArray(children).map((child: any, index: number) => {
         if (!child) return child;
 

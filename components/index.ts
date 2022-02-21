@@ -5,6 +5,7 @@ export * from './Divider';
 export * from './Dropdown';
 export * from './Fullscreen';
 export * from './Input';
+export * from './Select';
 export * from './SideNav';
 export * from './Switch';
 export * from './Table';
