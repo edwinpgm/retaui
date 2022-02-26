@@ -85,7 +85,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.16.7",
-    "@headlessui/react": "^1.4.2",
+    "@headlessui/react": "^1.5.0",
     "@tailwindcss/forms": "^0.4.0",
     "clsx": "^1.1.1",
     "rc-util": "^5.16.1",
