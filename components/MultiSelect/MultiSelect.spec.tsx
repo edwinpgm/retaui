@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Select } from '.';
+import { MultiSelect } from '.';
 
 const options = [
   {
@@ -21,8 +21,8 @@ const options = [
   },
 ];
 
-describe('Select', () => {
+describe('MultiSelect', () => {
   test('render', () => {
-    render(<Select options={options} />);
+    render(<MultiSelect options={options} />);
   });
 });

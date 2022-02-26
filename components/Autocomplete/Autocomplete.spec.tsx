@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Select } from '.';
+import { Autocomplete } from '.';
 
 const options = [
   {
@@ -21,8 +21,8 @@ const options = [
   },
 ];
 
-describe('Select', () => {
+describe('Autocomplete', () => {
   test('render', () => {
-    render(<Select options={options} />);
+    render(<Autocomplete options={options} />);
   });
 });

@@ -1,3 +1,4 @@
+export * from './Autocomplete';
 export * from './Breadcrumb';
 export * from './Button';
 export * from './Checkbox';
@@ -5,9 +6,12 @@ export * from './Divider';
 export * from './Dropdown';
 export * from './Fullscreen';
 export * from './Input';
+export * from './MultiSelect';
 export * from './Select';
+export * from './SelectBasic';
 export * from './SideNav';
 export * from './Switch';
 export * from './Table';
 export * from './Tab';
 export * from './Textarea';
+export * from './types';

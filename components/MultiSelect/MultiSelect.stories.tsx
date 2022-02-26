@@ -1,13 +1,15 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Select } from '.';
+import { MultiSelect, MultiSelectProps } from '.';
 
 export default {
-  title: 'Select',
-  component: Select,
-} as ComponentMeta<typeof Select>;
+  title: 'MultiSelect',
+  component: MultiSelect,
+} as ComponentMeta<typeof MultiSelect>;
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
+const Template: ComponentStory<typeof MultiSelect> = (
+  args: MultiSelectProps,
+) => <MultiSelect {...args} />;
 
 export const Basic = Template.bind({});
 Basic.args = {
