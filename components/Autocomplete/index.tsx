@@ -2,11 +2,8 @@ import React, { Fragment, useState } from 'react';
 import clsx from 'clsx';
 import { Combobox, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
+import { Option } from '@components/types';
 
-interface Option {
-  value: number | string;
-  label: string;
-}
 export interface AutocompleteProps {
   options: Option[];
   placeholder?: string;
@@ -28,6 +25,7 @@ export const Autocomplete = ({
       ? options
       : options.filter((option: Option) =>
           option.label
+            .toString()
             .toLowerCase()
             .replace(/\s+/g, '')
             .includes(query.toLowerCase().replace(/\s+/g, '')),
@@ -47,7 +45,7 @@ export const Autocomplete = ({
         >
           <Combobox.Input
             className="w-full border-none focus:ring-0 py-2 pl-3 pr-10 text-sm leading-5 text-gray-900"
-            displayValue={(option: Option) => option.label}
+            displayValue={(option: Option) => option.label.toString()}
             onChange={(event) => setQuery(event.target.value)}
             placeholder={placeholder}
           />

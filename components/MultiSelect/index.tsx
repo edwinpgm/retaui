@@ -2,11 +2,7 @@ import React, { Fragment, useState } from 'react';
 import clsx from 'clsx';
 import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon, XIcon } from '@heroicons/react/solid';
-
-export interface Option {
-  value: number | string;
-  label: number | string;
-}
+import { Option } from '@components/types';
 
 export interface MultiSelectProps {
   options?: Option[];
