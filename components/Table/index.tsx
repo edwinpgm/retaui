@@ -7,7 +7,7 @@ import {
   useGlobalFilter,
 } from 'react-table';
 import { TableProps } from './Table.types';
-import { TableBase, TableFilters, TablePagination } from './components';
+import { TableBase, TablePagination } from './components';
 
 const hooks = [useFilters, useGlobalFilter, useSortBy, usePagination];
 
@@ -27,7 +27,7 @@ export const Table = <T extends Record<string, unknown>>({
 
   return (
     <div data-testid="Table-container">
-      <TableFilters<T> instance={instance} />
+      {/* <TableFilters<T> instance={instance} /> */}
       <TableBase<T> instance={instance} />
       <TablePagination<T> instance={instance} />
     </div>

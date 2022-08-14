@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { build, fake, oneOf } from '@jackfranklin/test-data-bot';
-import { Table } from './Table';
-import { TableSimple } from './TableSimple';
+
+import { Table } from '.';
 import {
   filterMultiSelect,
   MultiSelectColumnFilter,
@@ -10,8 +10,8 @@ import {
 
 export default {
   title: 'Table',
-  component: Table || TableSimple,
-} as ComponentMeta<typeof Table | typeof TableSimple>;
+  component: Table,
+} as ComponentMeta<typeof Table>;
 
 const dataBuilder = build('Data', {
   fields: {
@@ -49,28 +49,5 @@ export const Base: ComponentStory<typeof Table> = (args) => {
 
 Base.args = {
   columns,
-  data,
-};
-
-export const Simple: ComponentStory<typeof TableSimple> = (args) => {
-  return <TableSimple {...args} />;
-};
-
-Simple.args = {
-  columns: [
-    {
-      Header: 'First Name',
-      accessor: 'firstName' as const,
-    },
-    {
-      Header: 'Last Name',
-      accessor: 'lastName' as const,
-      disableFilters: true,
-    },
-    {
-      Header: 'Status',
-      accessor: 'status' as const,
-    },
-  ],
   data,
 };
