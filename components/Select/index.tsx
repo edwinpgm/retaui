@@ -5,16 +5,21 @@ import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 import { Option } from '@components/types';
 
 export interface SelectProps {
-  options?: Option[];
+  options: Option[];
   placeholder?: string;
+  className?: string;
 }
 
-export const Select = ({ options = [], placeholder }: SelectProps) => {
+export const Select = ({
+  options = [],
+  placeholder,
+  className,
+}: SelectProps) => {
   const [selected, setSelected] = useState<Option>();
 
   return (
     <Listbox value={selected} onChange={setSelected}>
-      <div className="relative">
+      <div className={clsx('relative', className)}>
         <Listbox.Button
           className={clsx(
             'relative w-full py-2 pl-3 pr-10 text-left bg-white cursor-default  text-sm',
@@ -41,7 +46,7 @@ export const Select = ({ options = [], placeholder }: SelectProps) => {
           leaveTo="opacity-0"
         >
           <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-            {options?.map((option) => (
+            {options.map((option) => (
               <Listbox.Option
                 key={option.value}
                 className={({ active }) =>
