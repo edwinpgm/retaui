@@ -5,7 +5,7 @@ import {
   ArrowRightIcon,
   PlusIcon,
 } from '@heroicons/react/solid';
-import { Button, ButtonProps, ButtonSize, ButtonType } from '.';
+import { Button, ButtonProps, ButtonSize, ButtonAppearance } from '.';
 
 export default {
   title: 'Button',
@@ -20,16 +20,20 @@ const Template: ComponentStory<typeof Button> = (args: ButtonProps) => (
     <Button
       {...args}
       size={ButtonSize.Middle}
-      type={ButtonType.Primary}
+      appearance={ButtonAppearance.Primary}
       RightIcon={ArrowRightIcon}
     />
-    <Button {...args} size={ButtonSize.Middle} type={ButtonType.Default} />
+    <Button
+      {...args}
+      size={ButtonSize.Middle}
+      appearance={ButtonAppearance.Default}
+    />
     <Button {...args} size={ButtonSize.Small} />
     <Button
       {...args}
       size={ButtonSize.Small}
       className="inline"
-      type={ButtonType.Primary}
+      appearance={ButtonAppearance.Primary}
       LeftIcon={PlusIcon}
     />
     <Button {...args} size={ButtonSize.Middle} />

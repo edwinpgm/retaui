@@ -7,7 +7,7 @@ export enum ButtonSize {
   Large = 'large',
 }
 
-export enum ButtonType {
+export enum ButtonAppearance {
   Primary = 'primary',
   Ghost = 'ghost',
   Dashed = 'dashed',
@@ -16,15 +16,19 @@ export enum ButtonType {
   Default = 'default',
 }
 
-export type ButtonProps = {
+export type ButtonProps<E extends React.ElementType = React.ElementType> = {
   label: string;
   LeftIcon?: any;
   RightIcon?: any;
   className?: string;
   size?: ButtonSize;
-  type?: ButtonType;
-} & Omit<React.ComponentPropsWithoutRef<'button'>, 'type'>;
+  appearance?: ButtonAppearance;
+  as?: E;
+} & React.ComponentPropsWithoutRef<'button'>;
+
 type Ref = HTMLButtonElement;
+
+const defaultElement = 'button';
 
 export const Button = React.forwardRef(
   (props: ButtonProps, ref: React.Ref<Ref>) => {
@@ -33,10 +37,13 @@ export const Button = React.forwardRef(
       LeftIcon,
       RightIcon,
       size = ButtonSize.Middle,
-      type = ButtonType.Default,
+      appearance = ButtonAppearance.Primary,
       className,
+      as,
       ...restProps
     } = props;
+
+    const TagName = as || defaultElement;
 
     const clsSize = {
       [ButtonSize.Small]: 'px-2 py-1 text-sm font-normal',
@@ -44,32 +51,32 @@ export const Button = React.forwardRef(
       [ButtonSize.Large]: 'px-4 py-3 font-medium',
     };
 
-    const clsType = {
-      [ButtonType.Primary]: 'bg-indigo-600 text-white',
-      [ButtonType.Ghost]: 'px-3 py-2',
-      [ButtonType.Dashed]: 'px-4 py-3',
-      [ButtonType.Link]: 'px-4 py-3',
-      [ButtonType.Text]: 'px-4 py-3',
-      [ButtonType.Default]:
+    const clsAppearance = {
+      [ButtonAppearance.Primary]: 'bg-primary-800 text-white',
+      [ButtonAppearance.Ghost]: 'px-3 py-2',
+      [ButtonAppearance.Dashed]: 'px-4 py-3',
+      [ButtonAppearance.Link]: 'px-4 py-3',
+      [ButtonAppearance.Text]: 'px-4 py-3',
+      [ButtonAppearance.Default]:
         'shadow-inner shadow-gray-300 disabled:opacity-25 hover:bg-gray-50',
     };
 
     return (
-      <button
+      <TagName
         {...restProps}
         ref={ref}
         className={clsx(
           'flex items-center space-x-2 rounded-md text-center',
           LeftIcon || RightIcon ? 'justify-between' : 'justify-center',
           clsSize[size],
-          clsType[type],
+          clsAppearance[appearance],
           className,
         )}
       >
         {LeftIcon && <div>{<LeftIcon className="h-3.5 w-3.5" />}</div>}
         <span>{label}</span>
         {RightIcon && <div>{<RightIcon className="h-3.5 w-3.5" />}</div>}
-      </button>
+      </TagName>
     );
   },
 );
