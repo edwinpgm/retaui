@@ -21,8 +21,8 @@ export const Tab: React.FC<TabProps> = ({ list }) => {
               clsx(
                 'mr-2 py-2 -mb-[1px]',
                 selected
-                  ? ' text-blue-800 font-medium border-b-2 border-blue-800'
-                  : ' text-gray-400 font-medium',
+                  ? ' text-primary-800 font-medium border-b-2 border-primary-800'
+                  : ' text-tertiary-400 font-medium',
               )
             }
           >
