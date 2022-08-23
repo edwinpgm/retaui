@@ -19,7 +19,7 @@ export const Switch: React.FC<SwitchProps> = ({
       disabled={disabled}
       onChange={onChange}
       className={`${
-        checked ? 'bg-blue-600' : 'bg-gray-200'
+        checked ? 'bg-primary-700' : 'bg-tertiary-200'
       } relative inline-flex items-center h-6 rounded-full w-11`}
       {...restProps}
     >
