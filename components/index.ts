@@ -11,6 +11,7 @@ export * from './MultiSelect';
 export * from './Select';
 export * from './SelectBasic';
 export * from './SideNav';
+export * from './Steps';
 export * from './Switch';
 export * from './Table';
 export * from './Tab';
