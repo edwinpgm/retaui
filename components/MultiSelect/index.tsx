@@ -1,31 +1,40 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import clsx from 'clsx';
 import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon, XIcon } from '@heroicons/react/solid';
 import { Option } from '@components/types';
 
 export interface MultiSelectProps {
+  values: (number | string)[];
   options?: Option[];
   placeholder?: string;
   label?: string;
+  onChange: (value: (number | string)[]) => void;
 }
 
 export const MultiSelect = ({
-  options,
-  placeholder,
-  label,
+  values = [],
+  options = [],
+  placeholder = '',
+  label = '',
+  onChange,
 }: MultiSelectProps) => {
-  const [selected, setSelected] = useState<Option[]>([]);
+  const valuesSelected = options.filter((option) =>
+    values?.includes(option.value),
+  );
 
   const handleSelect = (option: Option[]) => {
-    console.log('option', option);
     const isAlreadySelected =
-      selected.findIndex((item) => item.value === option[0].value) > -1;
+      values.findIndex((item: string | number) => {
+        return item === option[0].value;
+      }) > -1;
 
     if (isAlreadySelected) {
-      setSelected(selected.filter((item) => item.value !== option[0].value));
+      onChange(
+        values.filter((item: number | string) => item !== option[0].value),
+      );
     } else {
-      setSelected([...selected, option[0]]);
+      onChange([...values, option[0].value]);
     }
   };
 
@@ -36,7 +45,7 @@ export const MultiSelect = ({
   };
 
   return (
-    <Listbox value={selected} onChange={handleSelect}>
+    <Listbox value={valuesSelected} onChange={handleSelect}>
       <div className="relative">
         {label && <Listbox.Label>Assignee:</Listbox.Label>}
         <Listbox.Button
@@ -47,9 +56,9 @@ export const MultiSelect = ({
             'rounded-md shadow-sm',
           )}
         >
-          {selected.length > 0 ? (
+          {valuesSelected.length > 0 ? (
             <div className="flex flex-wrap space-x-1">
-              {selected.map((item) => (
+              {valuesSelected.map((item) => (
                 <div
                   key={item.value}
                   className="flex items-center bg-gray-200 py-1 px-2 rounded-sm text-xs"
@@ -92,14 +101,14 @@ export const MultiSelect = ({
                 <>
                   <span
                     className={`block truncate ${
-                      isSelected(selected, option)
+                      isSelected(valuesSelected, option)
                         ? 'font-medium'
                         : 'font-normal'
                     }`}
                   >
                     {option?.label}
                   </span>
-                  {isSelected(selected, option) ? (
+                  {isSelected(valuesSelected, option) ? (
                     <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-indigo-600">
                       <CheckIcon className="w-5 h-5" aria-hidden="true" />
                     </span>

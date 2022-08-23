@@ -1,5 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { useArgs } from '@storybook/client-api';
+
 import { MultiSelect, MultiSelectProps } from '.';
 
 export default {
@@ -9,7 +11,15 @@ export default {
 
 const Template: ComponentStory<typeof MultiSelect> = (
   args: MultiSelectProps,
-) => <MultiSelect {...args} />;
+) => {
+  const [, updateArgs] = useArgs();
+
+  const handleChange = (values: (string | number)[]) => {
+    updateArgs({ values });
+  };
+
+  return <MultiSelect {...args} onChange={handleChange} />;
+};
 
 export const Basic = Template.bind({});
 Basic.args = {
