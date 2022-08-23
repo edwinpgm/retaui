@@ -9,6 +9,7 @@ export enum ButtonSize {
 
 export enum ButtonAppearance {
   Primary = 'primary',
+  Outline = 'outline',
   Ghost = 'ghost',
   Dashed = 'dashed',
   Link = 'link',
@@ -53,6 +54,8 @@ export const Button = React.forwardRef(
 
     const clsAppearance = {
       [ButtonAppearance.Primary]: 'bg-primary-800 text-white',
+      [ButtonAppearance.Outline]:
+        'bg-transparent text-primary-800 rounded-md border border-primary-800',
       [ButtonAppearance.Ghost]: 'px-3 py-2',
       [ButtonAppearance.Dashed]: 'px-4 py-3',
       [ButtonAppearance.Link]: 'px-4 py-3',
