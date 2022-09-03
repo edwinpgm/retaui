@@ -7,6 +7,7 @@ export * from './Divider';
 export * from './Dropdown';
 export * from './Fullscreen';
 export * from './Input';
+export * from './Modal';
 export * from './MultiSelect';
 export * from './Select';
 export * from './SelectBasic';
